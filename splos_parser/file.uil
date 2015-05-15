@@ -1,0 +1,107 @@
+function test_fun
+	a = 10;
+	t0 = a + 10;
+	a = t0;
+	ret
+
+
+function test_fun1
+	a = 10;
+	t0 = a + 10;
+	a = t0;
+	ret
+
+
+function test_fun2
+	a = 10;
+	t0 = a + 10;
+	a = t0;
+	ret
+
+
+function test_fun3
+	a = 10;
+	t0 = a + 10;
+	a = t0;
+	ret
+
+
+function fun1
+	b = 0;
+	a = 10;
+(parallel){ 
+	a = 3;
+} 
+(parallel){ 
+	b = 10;
+	if (b <= 10) goto BB0;
+	t0 = &str0;
+	printf(t0);
+	goto BB1;
+BB0:
+	t2 = &str1;
+	printf(t2);
+BB1:
+} 
+	if (a < 0) goto BB6;
+	if (a > 3) goto BB2;
+	t4 = a - 0;
+	goto (BB3,BB6,BB6,BB5,)[t4];
+BB2:
+	if (a < 10) goto BB6;
+	if (a > 10) goto BB6;
+	goto BB4;
+BB3:
+	t5 = a + 10;
+	a = t5;
+	goto BB7;
+BB4:
+	++a;
+	goto BB7;
+BB5:
+	t9 = a + -1;
+	a = t9;
+	goto BB7;
+BB6:
+	t10 = a + 3;
+	a = t10;
+BB7:
+	ret
+
+
+function fun
+	t0 = b + 10;
+	b = t0;
+	t1 = a + 10;
+	a = t1;
+	ret
+
+
+function fun2
+	++aa;
+	if (aa < 1) goto BB8;
+	if (aa > 1) goto BB8;
+	t1 = &str2;
+	printf(t1);
+	goto BB9;
+BB8:
+	t3 = &str3;
+	printf(t3);
+BB9:
+	ret
+
+
+function main
+	open[1]();
+	if (i != 0) goto BB10;
+	t1 = &str4;
+	printf(t1, a);
+	goto BB11;
+BB10:
+	t3 = &str5;
+	printf(t3, a);
+BB11:
+	return 0;
+	ret
+
+
