@@ -1,0 +1,45 @@
+splos_parser(small parallel laguage for operating system parser) 
+
+源文件后缀: 
+    源文件: .p 
+    头文件: .h
+    (include import 只能引入.h 文件)
+
+模块的输入输入:
+    1. input:  源文件(.p)
+    2. output: 语法树
+    3. 语法树流入下一个模块
+
+模块的数据流:
+    1. 语法分析:
+        (在语法分析中加载源文件,
+         进行词法分析)
+         得到语法树
+    2. 语义分析:
+        检查语法树
+
+主要有以下几个小模块
+1. tools : 工具类代码 
+    alloc.c : pcc专用的内存管理
+    error.c : 错误处理
+    input.c : 输入文件的处理
+    output.c : 输出处理
+    str.c   : pcc的字符串类型处理
+    vector.c: 自定义的pcc的集合
+
+2. types : 基本类型
+    types.c : 类型子系统
+
+3. lex : 词法分析处理
+    lex.c : 词法分析
+
+4. parse : 语法分析,语义检查
+    ast.c  : 语法分析的公用函数
+    decl.c  : 声明的语法分析
+    declchk.c  : 声明的语义检查
+    expr.c  : 表达式的语法分析
+    exprchk.c  : 表达式的语义检查
+    stmt.c  : 语句的语法分析
+    stmtchk.c : 语句的语义检查
+    fold.c  : 处理常量使用
+    dumpast.c  : 输出语法树

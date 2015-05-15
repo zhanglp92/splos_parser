@@ -1,0 +1,165 @@
+function test_fun 
+{
+  (+= a
+      (+ a
+         10))
+}
+
+function test_fun1 
+{
+  (+= a
+      (+ a
+         10))
+}
+
+function test_fun2 
+{
+  (+= a
+      (+ a
+         10))
+}
+
+function fun1 
+{
+  (parallel {
+              (= b
+                 3)
+            })
+
+  (parallel {
+              (= b
+                 10)
+
+              (if  (> b
+                      10)
+                (then  
+                  {
+                    (call printf
+                          str0)
+                  }
+                end-then)
+                (else  
+                  {
+                    (call printf
+                          str1)
+                  }
+                end-else)
+              end-if)
+            })
+
+  (switch a
+    {
+      (case  0
+        {
+          (+= a
+              (+ a
+                 10))
+        }
+      end-case)
+
+      (break)
+
+      (case  10
+        {
+          (+= a
+              (+ a
+                 1))++
+        }
+      end-case)
+
+      (break)
+
+      (case  3
+        {
+          (-= a
+              (- a
+                 1))--
+        }
+      end-case)
+
+      (break)
+
+      (default  (+= a
+                    (+ a
+                       3))
+      end-default)
+    }
+  end-switch)
+
+  (if  0
+    (then  
+      {
+      }
+    end-then)
+    (else  
+      {
+      }
+    end-else)
+  end-if)
+}
+
+function fun 
+{
+  (+= b
+      (+ b
+         10))
+
+  (+= a
+      (+ a
+         10))
+}
+
+function fun2 
+{
+  (+= aa
+      (+ aa
+         1))
+
+  (switch aa
+    {
+      (case  1
+        (call printf
+              str2)
+      end-case)
+
+      (break)
+
+      (default  (call printf
+                      str3)
+      end-default)
+
+      (break)
+    }
+  end-switch)
+
+  (label table:
+
+    (ret NIL)
+  end-label)
+}
+
+function main 
+{
+  (call open)
+
+  (if  (== i
+           0)
+    (then  
+      {
+        (call printf
+              str4,
+              a)
+      }
+    end-then)
+    (else  
+      {
+        (call printf
+              str5,
+              a)
+      }
+    end-else)
+  end-if)
+
+  (ret 0)
+}
+
