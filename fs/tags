@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CFLAGS	makefile	/^CFLAGS  = -DDEBUG -c -Wall -g $/;"	m
+CHAR_BIT	blockbitmap.c	27;"	d	file:
+C_OBJECTS	makefile	/^C_OBJECTS = $(patsubst %.c,%.o,$(C_SOURCES))$/;"	m
+C_SOURCES	makefile	/^C_SOURCES = $(wildcard *.c)$/;"	m
+PROGRAM	makefile	/^PROGRAM = filesystem$/;"	m
+SFS_BLKN_BLMAP	mksfs.h	28;"	d
+SFS_BLKN_DATA	mksfs.h	32;"	d
+SFS_BLKN_INMAP	mksfs.h	29;"	d
+SFS_BLKN_INTABLE	mksfs.h	30;"	d
+SFS_BLKN_ROOT	mksfs.h	31;"	d
+SFS_BLKN_SUPER	mksfs.h	27;"	d
+SFS_BLOCK_SIZE	mksfs.h	24;"	d
+SFS_INODE_SIZE	mksfs.h	23;"	d
+SFS_MAGIC	mksfs.h	22;"	d
+SFS_MAX_FILESYSTEM	mksfs.h	26;"	d
+SFS_MAX_FNAME_LEN	mksfs.h	25;"	d
+SFS_TYPE_CHAR	mksfs.h	38;"	d
+SFS_TYPE_DIR	mksfs.h	36;"	d
+SFS_TYPE_FILE	mksfs.h	37;"	d
+WORD_BIT	blockbitmap.c	28;"	d	file:
+__BLOCKBITMAP_H__	blockbitmap.h	19;"	d
+__DEV_H__	dev.h	20;"	d
+__ERROR_H__	error.h	19;"	d
+__FILE_H__	file.h	20;"	d
+__MKSFS_H__	mksfs.h	19;"	d
+__SFS_H__	sfs.h	20;"	d
+__SFS_INODE_H__	sfs_inode.h	20;"	d
+__error	error.h	26;"	d
+blockbitmap_alloc	blockbitmap.c	/^int blockbitmap_alloc(struct sfs_blockbitmap *bitmap, unsigned int *index_store)$/;"	f
+blockbitmap_create	blockbitmap.c	/^struct sfs_blockbitmap *blockbitmap_create(unsigned int nbits)$/;"	f
+blockbitmap_destory	blockbitmap.c	/^void blockbitmap_destory(struct sfs_blockbitmap *bitmap)$/;"	f
+blockbitmap_free	blockbitmap.c	/^void blockbitmap_free(struct sfs_blockbitmap *bitmap, unsigned int index)$/;"	f
+blockbitmap_test	blockbitmap.c	/^int blockbitmap_test(struct sfs_blockbitmap *bitmap)$/;"	f
+blockbitmap_translate	blockbitmap.c	/^blockbitmap_translate(struct sfs_blockbitmap *bitmap, unsigned int index, $/;"	f
+blockmap	mksfs.h	/^	struct  sfs_blockbitmap   *blockmap;$/;"	m	struct:sfs_mem_ctrl	typeref:struct:sfs_mem_ctrl::sfs_blockbitmap
+blocks	mksfs.h	/^	unsigned int   blocks;$/;"	m	struct:sfs_superblock
+bug	error.h	41;"	d
+dir_entry	mksfs.h	/^struct dir_entry{$/;"	s
+dir_name	mksfs.h	/^    char           dir_name[SFS_MAX_FNAME_LEN + 1];$/;"	m	struct:dir_entry
+fd	dev.c	/^int fd;$/;"	v
+fd_mode	file.h	/^	int      fd_mode;   \/\/R|W$/;"	m	struct:file_desc
+file_desc	file.h	/^struct file_desc{$/;"	s
+free_inode	sfs_inode.c	/^void free_inode(struct sfs_inode *inode)$/;"	f
+get_inode	sfs_inode.c	/^struct sfs_inode *get_inode(struct sfs_mem_ctrl *ctrl,  int inode_num)$/;"	f
+i_blocks	mksfs.h	/^	unsigned int  i_blocks;$/;"	m	struct:sfs_inode
+i_direct	mksfs.h	/^	unsigned int  i_direct[12];$/;"	m	struct:sfs_inode
+i_indirect	mksfs.h	/^	unsigned int  i_indirect;$/;"	m	struct:sfs_inode
+i_inode	mksfs.h	/^	unsigned int  i_inode;$/;"	m	struct:sfs_inode
+i_nlinks	mksfs.h	/^	unsigned int  i_nlinks;$/;"	m	struct:sfs_inode
+i_size	mksfs.h	/^	unsigned int  i_size;$/;"	m	struct:sfs_inode
+i_type	mksfs.h	/^	unsigned int  i_type;$/;"	m	struct:sfs_inode
+ide_init_block	dev.c	/^int ide_init_block(char *url)$/;"	f
+ide_read_block	dev.c	/^int ide_read_block( struct sfs_mem_ctrl *ctrl, int bnum, char *buffer, int buffersize, int offset)$/;"	f
+ide_write_block	dev.c	/^int ide_write_block(struct sfs_mem_ctrl  *ctrl, int bnum,  char *buffer,  int buffersize, int offset)$/;"	f
+info	error.h	42;"	d
+inode	file.h	/^	struct   sfs_inode *inode;$/;"	m	struct:file_desc	typeref:struct:file_desc::sfs_inode
+inode_number	mksfs.h	/^    unsigned int   inode_number;$/;"	m	struct:dir_entry
+inodelength	mksfs.h	/^	int     inodelength;         \/\/在内存中的inode的信息struct sfs_inodetable{$/;"	m	struct:sfs_mem_ctrl
+inodemap	mksfs.h	/^	char    *inodemap;$/;"	m	struct:sfs_mem_ctrl
+inodemap_create	sfs_inode.c	/^char *inodemap_create(unsigned int uinodes)$/;"	f
+inodemap_index	sfs_inode.c	/^int inodemap_index(char *inodemap)$/;"	f
+inodemap_test	sfs_inode.c	/^int inodemap_test(char *inodemap)$/;"	f
+inodes	mksfs.h	/^	unsigned int   inodes;$/;"	m	struct:sfs_superblock
+inodetable	mksfs.h	/^    struct  sfs_inode  *inodetable;$/;"	m	struct:sfs_mem_ctrl	typeref:struct:sfs_mem_ctrl::sfs_inode
+inodetable_create	sfs_inode.c	/^struct sfs_inode * inodetable_create(unsigned int uinodes)$/;"	f
+inodetable_test	sfs_inode.c	/^int inodetable_test(struct sfs_inode *inodetable)$/;"	f
+inodetablelength	mksfs.h	/^	int inodetablelength;$/;"	m	struct:sfs_mem_ctrl
+magic	mksfs.h	/^	unsigned int   magic;      \/\/magic number$/;"	m	struct:sfs_superblock
+main	mksfs.c	/^int main(int argc , char **argv)$/;"	f
+map	mksfs.h	/^	unsigned  int   *map;$/;"	m	struct:sfs_blockbitmap
+nbits	mksfs.h	/^	unsigned  int   nbits;$/;"	m	struct:sfs_blockbitmap
+nwords	mksfs.h	/^	unsigned  int   nwords;$/;"	m	struct:sfs_blockbitmap
+pos	file.h	/^	int      pos;       \/\/当前读写的位置$/;"	m	struct:file_desc
+read_info	mksfs.c	/^struct sfs_mem_ctrl * read_info()$/;"	f
+root	mksfs.h	/^	struct  dir_entry  *root;    \/\/将root节点的信息给它$/;"	m	struct:sfs_mem_ctrl	typeref:struct:sfs_mem_ctrl::dir_entry
+root_create	mksfs.c	/^struct dir_entry * root_create ()$/;"	f
+root_test	mksfs.c	/^int root_test (struct dir_entry *root)$/;"	f
+sfs_blockbitmap	mksfs.h	/^struct sfs_blockbitmap{$/;"	s
+sfs_create	mksfs.c	/^struct sfs_mem_ctrl * sfs_create()$/;"	f
+sfs_init	sfs.c	/^int sfs_init()$/;"	f
+sfs_inode	mksfs.h	/^struct sfs_inode{$/;"	s
+sfs_mem_ctrl	mksfs.h	/^struct sfs_mem_ctrl{$/;"	s
+sfs_superblock	mksfs.h	/^struct sfs_superblock{$/;"	s
+superblock	mksfs.h	/^	struct  sfs_superblock    *superblock;$/;"	m	struct:sfs_mem_ctrl	typeref:struct:sfs_mem_ctrl::sfs_superblock
+sync_inode	sfs_inode.c	/^int sync_inode(struct sfs_mem_ctrl *ctrl,  struct sfs_inode *inode)$/;"	f
+test	mksfs.c	/^int test(struct sfs_mem_ctrl *ctrl)$/;"	f
+ublocks	mksfs.h	/^	unsigned int   ublocks;    $/;"	m	struct:sfs_superblock
+uinodes	mksfs.h	/^	unsigned int   uinodes;$/;"	m	struct:sfs_superblock
+warn	error.h	40;"	d
+write_info	mksfs.c	/^int write_info(struct sfs_mem_ctrl *ctrl)$/;"	f
