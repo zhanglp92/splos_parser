@@ -10,13 +10,21 @@
 	> Description: 
  ************************************************************************/
 
-#include <string.h>
+#include "config.h"
+
 #if defined(_UCC)
-    #include <stdio.h>
+    #include <string.h>
     #include <stdlib.h>
     #include <unistd.h>
+    #include <stdio.h>
 #elif defined(_WIN32)
     #include <windows.h>
+#elif defined(_LF)
+    #include <string.h>
+    #include <stdlib.h>
+    #include <unistd.h>
+    #include <stdio.h>
+    #include "fs.h"
 #else
     #include <sys/mman.h>
     #include <sys/types.h>
@@ -24,10 +32,6 @@
     #include <unistd.h>
     #include <fcntl.h>
 #endif
-
-#include "../fs/file.h"
-
-//#define _LF
 
 #include "input.h"
 #include "error.h"
@@ -114,22 +118,20 @@ void ReadSourceFile (char *filename)
     }
 #elif defined(_LF)
     int size;
-    int fno;
+    long fno;
 
-    char lf_file[FILE_NAME_LEN + 1] = {};
-    sprintf (lf_file, "/root/%s", filename);
-
+    #define lf_filename filename 
     // 先cp 到fs, 在打开
-    copyfile (lf_file, filename);
+    LfCopyfile (lf_filename, filename);
     
-    fno = lfopen (lf_file, LF_RDWR);
+    fno = LfOpen (lf_filename, LF_RDWR);
     if (-1 == fno) {
     
-        Fatal ("Can't open file %s.\n", filename);
+        Fatal ("Can't open file %s.\n", lf_filename);
     }
     if (-1 == lfstat (fno, &size)) {
         
-        Fatal ("Can't stat file %s. \n", filename);
+        Fatal ("Can't stat file %s. \n", lf_filename);
     }
     Input.size = size;
     Input.base = calloc (size + 1, sizeof (char));
@@ -137,6 +139,7 @@ void ReadSourceFile (char *filename)
     lfread (fno, Input.base, size);
     Input.base[Input.size] = END_OF_FILE;
     Input.file = (void*)fno;
+    #undef lf_filename
 
 #else
     struct stat st;
@@ -172,9 +175,7 @@ long MyCreateFile (char *filename)
 {
     long fno;
 #if defined(_LF)
-    char lf_file[FILE_NAME_LEN + 1] = {};
-    sprintf (lf_file, "/root/%s", filename);
-    fno = lfopen (lf_file, LF_CREAT|LF_RDWR);
+    fno = LfOpen (filename, LF_CREAT|LF_RDWR);
 #else 
     fno = open (filename, O_CREAT|O_RDWR);
 #endif
@@ -196,12 +197,10 @@ void MyClose (long fno)
 }
 
 /* 判断文件是否存在 */
-int FileExist (const char *filename) 
+int FileExist (char *filename) 
 {
 #if defined(_LF)
-    char lf_file[FILE_NAME_LEN + 1] = {};
-    sprintf (lf_file, "/root/%s", filename);
-    return (laccess (lf_file, 0) == 0);
+    return (LfAccess (filename, 0) == 0);
 #else 
     return (access (filename, 0) == 0);
 #endif

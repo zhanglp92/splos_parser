@@ -61,7 +61,7 @@ long MyCreateFile (char *filename);
 void MyClose (long fno);
 void ReadSourceFile (char *filename);
 void CloseSourceFile (void);
-int FileExist (const char *filename);
+int FileExist (char *filename);
 
 /* 文件结束标志 */
 extern unsigned char END_OF_FILE;
