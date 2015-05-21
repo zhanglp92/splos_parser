@@ -31,4 +31,6 @@
     #define WCHAR_SIZE  LONG_SIZE
 #endif
 
+#define _LF
+
 #endif

@@ -4,7 +4,7 @@ CP  := cp
 AR  := ar rc
 
 INCS    := -I$(join $(SRC_DIR), /include) \
-		   -I$(join $(SRC_DIR), /../fs)
+		   -I$(join $(SRC_DIR), /..)
 FS_LIB  := $(join $(SRC_DIR), /../fs/libfilesystem.a)
 
 define cc_lib

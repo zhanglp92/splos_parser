@@ -195,6 +195,7 @@ static int ParseCommandLine (int argc, char *argv[])
 }
 
 #include "../fs/init.h"
+#include "config.h"
 
 /* 编译从这开始 */
 int main (int argc, char **argv)

@@ -21,11 +21,11 @@ $(bin_name): $(addsuffix .o, $(basename $(bin_cc)))
 	make -C ./lex   liblex.so
 	make -C ./parse libparse.so
 	$(CC) -o $@ $^ \
-		 $(FS_LIB) \
 		./lex/liblex.so \
 		./parse/libparse.so \
 		./types/libtypes.a \
-		./tools/libtools.so
+		./tools/libtools.so \
+		 $(FS_LIB)
 
 clean:
 	$(RM) $(bin_name) $(addsuffix .o, $(basename $(bin_cc)))

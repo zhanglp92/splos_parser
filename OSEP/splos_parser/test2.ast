@@ -1,0 +1,7 @@
+function test_fun2 
+{
+  (+= a
+      (+ a
+         10))
+}
+
