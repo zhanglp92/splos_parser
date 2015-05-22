@@ -2,7 +2,7 @@ include /tmp/conf.mk
 
 all: GET_LIB
 
-lib_name := libtools.so
+lib_name := libtools.a
 srcs     := $(wildcard *.c)
 
 $(eval $(call cc_lib))

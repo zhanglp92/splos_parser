@@ -15,16 +15,15 @@ bin:
 	make $(bin_name)
 
 $(bin_name): $(addsuffix .o, $(basename $(bin_cc))) 
-	make -C ../fs 
 	make -C ./types libtypes.a
-	make -C ./tools libtools.so
-	make -C ./lex   liblex.so
-	make -C ./parse libparse.so
+	make -C ./tools libtools.a
+	make -C ./lex   liblex.a
+	make -C ./parse libparse.a
 	$(CC) -o $@ $^ \
-		./lex/liblex.so \
-		./parse/libparse.so \
+		./lex/liblex.a \
+		./parse/libparse.a \
 		./types/libtypes.a \
-		./tools/libtools.so \
+		./tools/libtools.a \
 		 $(FS_LIB)
 
 clean:
@@ -36,6 +35,5 @@ clean_all: clean
 	make -C ./tools clean
 	make -C ./lex   clean
 	make -C ./parse clean
-	make -C ../fs clean
 
 .PHONY: clean clean_all bin

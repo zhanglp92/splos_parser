@@ -9,8 +9,8 @@
 #define _TEST_FILEINTERFACE_H
 
 
-#include "fs/file.h"
-#include "fs/fileinterface.h"
+#include "file.h"
+#include "fileinterface.h"
 
 
 #define LF_FILE \

@@ -2,7 +2,7 @@ include /tmp/conf.mk
 
 all: GET_LIB
 
-lib_name := liblex.so
+lib_name := liblex.a
 srcs     := $(wildcard *.c)
 
 $(eval $(call cc_lib))

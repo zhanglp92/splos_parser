@@ -2,7 +2,7 @@ include /tmp/conf.mk
 
 all: GET_LIB
 
-lib_name := libparse.so
+lib_name := libparse.a
 srcs     := $(wildcard *.c)
 
 $(eval $(call cc_lib))

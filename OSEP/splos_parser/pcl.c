@@ -194,7 +194,7 @@ static int ParseCommandLine (int argc, char *argv[])
     } return i;
 }
 
-#include "../fs/init.h"
+#include "../fs/include/init.h"
 #include "config.h"
 
 /* 编译从这开始 */
@@ -204,6 +204,7 @@ int main (int argc, char **argv)
 
     CurrentHeap = &ProgramHeap;
     argc--; argv++;
+
 
 #if defined(_LF)
     init_file_layout ();
